@@ -40,20 +40,33 @@ $ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizar
 
 2. Answer the questions to customize the configuration file for your server. Note: you need to answer no to some questions to get the agent running. For instance:
 
-*Do you want to turn on StatsD daemon?
-1. yes
-2. no
+   *Do you want to turn on StatsD daemon? 1. yes 2. no
 
-*Do you want to monitor metrics from CollectD?
-1. yes
-2. no
+   *Do you want to monitor metrics from CollectD? 1. yes 2. no
 
-*Do you want to monitor any log files?
-1. yes
-2. no
+   *Do you want to monitor any log files? 1. yes 2. no
 
 After you answered all these questions, you will get the path to the configuration file, which is /opt/aws/amazon-cloudwatch-agent/bin/config.json.
 
+### Step 5. Start the CloudWatch Agent
+**Procedures**:
+1. For linux system, type the following if you saved the configuration file on your ec2 instance:
+$ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
 
-**Changes may occur due to the updates of the platform.** 
+### Step 5. Verify if CloudWatch Agent is running
+**Procedures**:
+1. Run the following command
+$ /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
+
+You will see the following text if it's running.
+
+{
+  "status": "running",
+  "starttime": "2018-11-15T15:47:52+0000",
+  "version": "1.204682.0"
+}
+
+## Bingo, You got your CloudWatch running!
+
+**Final notes: Changes may occur due to the updates of the platform.** 
 
