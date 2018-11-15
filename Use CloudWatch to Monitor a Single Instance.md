@@ -58,7 +58,7 @@ $ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch
 1. Run the following command
 $ /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
 
-You will see the following text if it's running.
+   You will see the following text if it's running.
 
 {
   "status": "running",
