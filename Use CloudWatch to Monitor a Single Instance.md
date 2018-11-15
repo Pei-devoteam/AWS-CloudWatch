@@ -27,8 +27,8 @@ There are two ways to accomplish this step. One with AWS Systems Manager, and an
 2. SSH to your ec2 instance and type the following command to download the CloudWatch agent.
 > $ wget download-link
 
-3. Depending on your operation system, you need different commands to install the package. Please refer to the documentation page of        aws. If your ec2 instance is running on linux, you can use the following command. 
-$ sudo rpm -U ./amazon-cloudwatch-agent.rpm
+3. Depending on your operation system, you need different commands to install the package. Please refer to the documentation page of        aws. If your ec2 instance is running on linux, you can use the following command: 
+> $ sudo rpm -U ./amazon-cloudwatch-agent.rpm
 
 
 ### Step 4. Create the Agent Configuration file on your instance.
@@ -36,7 +36,7 @@ You can choose to create the configuration file using the wizard or create and e
 
 **Procedures**:
 1. Type the following command in your ec2 terminal.
-$ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+> $ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 
 2. Answer the questions to customize the configuration file for your server. Note: you need to answer no to some questions to get the agent running. For instance:
 
@@ -51,12 +51,12 @@ After you answered all these questions, you will get the path to the configurati
 ### Step 5. Start the CloudWatch Agent
 **Procedures**:
 1. For linux system, type the following if you saved the configuration file on your ec2 instance:
-$ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+> $ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
 
 ### Step 5. Verify if CloudWatch Agent is running
 **Procedures**:
 1. Run the following command
-$ /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
+> $ /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
 
    You will see the following text if it's running.
 
