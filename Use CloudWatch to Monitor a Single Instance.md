@@ -1,4 +1,4 @@
-Lazy Way to Start Using CloudWatch
+##A Lazy Way to Start Using CloudWatch
 
 This tutorial aims to provide you a practical guidence in using CloudWatch to monitor the health of your ec2 instance.
 Note: This tutorial is most suitable for monitoring only one ec2 instance without the need to reuse the configuration file. 
