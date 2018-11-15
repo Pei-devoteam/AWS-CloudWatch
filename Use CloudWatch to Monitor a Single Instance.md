@@ -53,7 +53,7 @@ After you answered all these questions, you will get the path to the configurati
 1. For linux system, type the following if you saved the configuration file on your ec2 instance:
 > $ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
 
-### Step 5. Verify if CloudWatch Agent is running
+### Step 5. Verify if the CloudWatch Agent is running
 **Procedures**:
 1. Run the following command
 > $ /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
