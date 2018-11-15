@@ -4,7 +4,7 @@ This tutorial aims to provide you with a practical guidence in using CloudWatch.
 Note: This tutorial is most suitable for monitoring only one ec2 instance without the need to reuse the configuration file. 
 
 ### Step 1. Create IAM Roles
-**Reason**: In order to enable CloudWatch agent to be installed on a server and send metrics to CloudWatch, you need to create an IAM role with the right permissions. 
+**Reason**: In order to enable the CloudWatch agent and having it installed on a server and send metrics to CloudWatch, you need to create an IAM role with the right permissions. 
 
 **Procedures**:
 1. Go to IAM service in aws and create a role.
