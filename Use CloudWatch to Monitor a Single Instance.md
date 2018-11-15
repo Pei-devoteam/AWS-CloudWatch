@@ -60,11 +60,10 @@ After you answered all these questions, you will get the path to the configurati
 
    You will see the following text if it's running.
 
-{
+> {
   "status": "running",
   "starttime": "2018-11-15T15:47:52+0000",
-  "version": "1.204682.0"
-}
+  "version": "1.204682.0"}
 
 ## Bingo, You got your CloudWatch running!
 
