@@ -18,8 +18,11 @@ Note: This tutorial is most suitable for monitoring only one ec2 instance withou
 1. Go to EC2 service interface in AWS. On the left lane, click "intances". Here you need to find your target instance in the pool. Mind    the instance you want to monitor needs to be up and running.
 2. Target your mouse on the instance and right click on it. Now you see a menu which starts with the item "connect". In this menu, find    the "Instance Settings". Under "Instance Settings", click "Attach/Replace IAM Role". After doing this, you will be redirect to a new    web interface, where you can choose an exisitng IAM role or to create a new IAM role. Now choose the role you created in Step 1.
 
+### Step 3. Download the CloudWatch Agent Package on your Amazon EC2 Instance.
+There are two ways to accomplish this step. One with AWS Systems Manager, and another with S3 Download Link. Here I will introduce the second one. [Please check out the documentation on aws for more information.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-first-instance.html#download-CloudWatch-Agent-on-EC2-Instance-first) 
 
-
+**Procedures**:
+1. Download the CloudWatch Agent Package on an Amazon EC2 Instance Using an S3 Download Link
 
 
 
