@@ -25,7 +25,7 @@ There are two ways to accomplish this step. One with AWS Systems Manager, and an
 1. Depending on your architecture and platform, choose the right download link on this [webpage](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-first-instance.html#download-CloudWatch-Agent-on-EC2-Instance-first). 
 
 2. SSH to your ec2 instance and type the following command to download the CloudWatch agent.
-$ wget download-link
+> $ wget download-link
 
 3. Depending on your operation system, you need different commands to install the package. Please refer to the documentation page of        aws. If your ec2 instance is running on linux, you can use the following command. 
 $ sudo rpm -U ./amazon-cloudwatch-agent.rpm
