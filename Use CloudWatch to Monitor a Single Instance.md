@@ -18,22 +18,42 @@ Note: This tutorial is most suitable for monitoring only one ec2 instance withou
 1. Go to EC2 service interface in AWS. On the left lane, click "intances". Here you need to find your target instance in the pool. Mind    the instance you want to monitor needs to be up and running.
 2. Target your mouse on the instance and right click on it. Now you see a menu which starts with the item "connect". In this menu, find    the "Instance Settings". Under "Instance Settings", click "Attach/Replace IAM Role". After doing this, you will be redirect to a new    web interface, where you can choose an exisitng IAM role or to create a new IAM role. Now choose the role you created in Step 1.
 
-### Step 3. Download the CloudWatch Agent Package on your Amazon EC2 Instance.
+### Step 3. Download the CloudWatch Agent Package and install the agent on your Amazon EC2 Instance.
 There are two ways to accomplish this step. One with AWS Systems Manager, and another with S3 Download Link. Here I will introduce the second one. [Please check out the documentation on aws for more information.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-first-instance.html#download-CloudWatch-Agent-on-EC2-Instance-first) 
 
 **Procedures**:
-1. Download the CloudWatch Agent Package on an Amazon EC2 Instance Using an S3 Download Link
+1. Depending on your architecture and platform, choose the right download link on this [webpage](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-first-instance.html#download-CloudWatch-Agent-on-EC2-Instance-first). 
 
+2. SSH to your ec2 instance and type the following command to download the CloudWatch agent.
+$ wget download-link
+
+3. Depending on your operation system, you need different commands to install the package. Please refer to the documentation page of        aws. If your ec2 instance is running on linux, you can use the following command. 
+$ sudo rpm -U ./amazon-cloudwatch-agent.rpm
+
+
+### Step 4. Create the Agent Configuration file on your instance.
+You can choose to create the configuration file using the wizard or create and edit it manually by yourself. I will introduce the method of creating it with the wizard as it is easier.
+
+**Procedures**:
+1. Type the following command in your ec2 terminal.
+$ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+
+2. Answer the questions to customize the configuration file for your server. Note: you need to answer no to some questions to get the agent running. For instance:
+
+*Do you want to turn on StatsD daemon?
+1. yes
+2. no
+
+*Do you want to monitor metrics from CollectD?
+1. yes
+2. no
+
+*Do you want to monitor any log files?
+1. yes
+2. no
+
+After you answered all these questions, you will get the path to the configuration file, which is /opt/aws/amazon-cloudwatch-agent/bin/config.json.
 
 
 **Changes may occur due to the updates of the platform.** 
 
-An IAM role for the instance profile is required when you install the CloudWatch agent on an Amazon EC2 instance. This role enables the CloudWatch agent to perform actions on the instance. Use one of the roles you created earlier. For more information about creating these roles, see Create IAM Roles and Users for Use With CloudWatch Agent. You can scroll through the list to find them, or use the search box.
-
-If you are going to use this instance to create the CloudWatch agent configuration file and copy it to Systems Manager Parameter Store, use the role you created that has permissions to write to Parameter Store. This role may be called CloudWatchAgentAdminRole.
-
-For all other instances, select the role that includes just the permissions needed to install and run the agent. This role may be called CloudWatchAgentServerRole.
-
-Attach this role to the instance on which you install the CloudWatch agent. For more information, see Attaching an IAM Role to an Instance in the Amazon EC2 User Guide for Windows Instances.
-
-The other role is needed to store your CloudWatch agent configuration in System Manager Parameter Store, which enables multiple servers to use "
