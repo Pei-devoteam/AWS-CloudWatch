@@ -33,6 +33,7 @@ You can choose to create the configuration file using the wizard or create and e
 1. Type the following command in your ec2 terminal.
 
 > $ vi /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+
 > $ vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
 
 2. Copy the following content into the previous configuration file.
