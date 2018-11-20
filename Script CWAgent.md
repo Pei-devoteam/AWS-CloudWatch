@@ -1,3 +1,13 @@
+### Deploy the Amazon CloudWatch agent to Amazon EC2 instances using AWS CloudFormation
+
+[Install and Update the CloudWatch Agent Using an AWS CloudFormation Inline Template](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent-New-Instances-CloudFormation.html)
+
+**To use AWS CloudFormation to install the CloudWatch agent on a new instance**
+Download the template from GitHub. In this tutorial, download the inline template for Amazon Linux 2:
+
+> $ curl -O https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/solutions/AmazonCloudWatchAgent/inline/amazon_linux.template
+
+# Aternative way of installing it:
 ### Step 1. Create IAM Roles
 **Reason**: In order to enable the CloudWatch agent and having it installed on a server and send metrics to CloudWatch, you need to create an IAM role with the right permissions. 
 
