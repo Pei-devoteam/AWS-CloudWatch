@@ -36,6 +36,7 @@ You can choose to create the configuration file using the wizard or create and e
 > $ vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
 
 2. Copy the following content into the previous configuration file.
+```    
     {
       "agent": {
         "metrics_collection_interval": 10,
@@ -163,6 +164,7 @@ You can choose to create the configuration file using the wizard or create and e
         "log_stream_name": "my_log_stream_name"
       }
     }
+```
 
 ### Step 5. Start the CloudWatch Agent
 **Procedures**:
