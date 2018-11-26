@@ -184,6 +184,6 @@ You can choose to create the configuration file using the wizard or create and e
   "starttime": "2018-11-15T15:47:52+0000",
   "version": "1.204682.0"}
 
-## Bingo, You got your CloudWatch running!
+### Step 7. Upload config file to ssm parameter store
 
-**Final notes: Changes may occur due to the updates of the platform.** 
+> $aws ssm put-parameter --name "cloudwatch_config" --type "String" --value file:///opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
