@@ -187,3 +187,5 @@ You can choose to create the configuration file using the wizard or create and e
 ### Step 7. Upload config file to ssm parameter store
 
 > $aws ssm put-parameter --name "cloudwatch_config" --type "String" --value file:///opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+
+don't forget to put right setting for configuration file.
