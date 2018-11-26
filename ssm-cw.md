@@ -1,17 +1,18 @@
-### Step 1. Create IAM Roles
-**Reason**: In order to enable the CloudWatch agent and having it installed on a server and send metrics to CloudWatch, you need to create an IAM role with the right permissions. 
+### Step 1. Create two IAM Roles
+The first role named CloudWatchAdminRole should have AmazonEC2RoleforSSM and CloudWatchAgentAdminPolicy attached.
+The second role named CloudWatchSeverRole should have AmazonEC2RoleforSSM and CloudWatchAgentServerPolicy attached.
 
-**Procedures**:
-1. Go to IAM service in aws and create a role.
-2. Under "Select type of trusted entity", choose "AWS service".
-3. Under "Choose the service that will use this role", choose "EC2" and click "Next:Persmissions".
-4. Now you are being redirected to a new web page. Next to "Filter policies", type in "CloudWatchAgentServerPolicy", and attach this        policy for your new role. Then proceed to the next page.
-5. Now pick up a name for your new role and leave everything else in the default setting.
+The first instance needs to be attached to the AdminRole. The later instances only need to be attached to the ServerRole.
 
 ### Step 2. Attach the IAM Role to the instance that you want to monitor
-**Procedures**:
-1. Go to EC2 service interface in AWS. On the left lane, click "intances". Here you need to find your target instance in the pool. Mind    the instance you want to monitor needs to be up and running.
-2. Target your mouse on the instance and right click on it. Now you see a menu which starts with the item "connect". In this menu, find    the "Instance Settings". Under "Instance Settings", click "Attach/Replace IAM Role". After doing this, you will be redirect to a new    web interface, where you can choose an exisitng IAM role or to create a new IAM role. Now choose the role you created in Step 1.
+
+### Step 3. Go to SSM page in aws. Run the commands to install CloudWatch Agent.
+
+### Step 4. If it is the first instance you where you download the CloudWatch, you should create a configuration file there and push it back to the ssm parameter store using the following command:
+> $aws ssm put-parameter --name "cloudwatch_config" --type "String" --value file:///opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+
+Don't forget to put right setting for configuration file.
+
 
 ### Step 3. Download the CloudWatch Agent Package and install the agent on your Amazon EC2 Instance.
 There are two ways to accomplish this step. One with AWS Systems Manager, and another with S3 Download Link. Here I will introduce the second one. [Please check out the documentation on aws for more information.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-first-instance.html#download-CloudWatch-Agent-on-EC2-Instance-first) 
