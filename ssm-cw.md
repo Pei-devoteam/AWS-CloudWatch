@@ -1,3 +1,7 @@
+## Install CloudWatch Agent on ec2 instances.
+
+To install CloudWatch Agent on the instances in a new environment via ssm, you need to follow different steps for the first instance and the rest of the instances. Nevertheless, you start doing it by creating two IAM roles.
+
 ### Step 1. Create two IAM Roles
 The first role named CloudWatchAdminRole needs the following policies: AmazonEC2RoleforSSM, CloudWatchAgentAdminPolicy and AmazonSSMFullAccess. 
 (We are sure we need getparameter right for this role to start the CW Agent for sure, but we do not know what else is missing at this stage.)
@@ -6,7 +10,8 @@ The second role named CloudWatchSeverRole needs the following policies:
 AmazonEC2RoleforSSM, CloudWatchAgentServerPolicy and AmazonSSMFullAccess.
 
 
-### Step 2. Attach the IAM Role to the instances that you want to monitor.
+### Step 2. Install CloudWatch Agent on your first instance.
+Attach the IAM Role (CloudWatchAdminRole) to the instances that you want to monitor.
 
 ### Step 3. Go to SSM page in aws. Run the commands to install CloudWatch Agent and Start command.
 
