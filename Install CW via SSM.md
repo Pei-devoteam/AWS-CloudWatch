@@ -17,9 +17,7 @@ The second role named CloudWatchSeverRole needs the following policies:
 
 ### Step 2. Install CloudWatch Agent on your first instance.
 a) Attach the IAM Role (CloudWatchAdminRole) to the first instance that you want to monitor.
-
 &nbsp;
-
 b) Download the CloudWatch Agent on Amazon EC2 instance using AWS Systems Manager.
 
 ### Step 3. Download 
